@@ -3,9 +3,9 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 install:
   - npm ci
-  cache:
-    directories:
-    - "$HOME/.npm"
+cache:
+  directories:
+  - "$HOME/.npm"
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
