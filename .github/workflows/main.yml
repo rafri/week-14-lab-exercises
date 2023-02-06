@@ -17,11 +17,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      install:
-        - npm ci
-      cache:
-        directories:
-        - "$HOME/.npm"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+      - name: scan for insecure modules
+        run: |
+        cd insecure
+        npm audit
