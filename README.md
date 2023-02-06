@@ -13,9 +13,9 @@ CI and CD
 see [Github Actions, Getting started](https://docs.github.com/en/actions/quickstart)
 ## Your mission
 
-1. [ ] Get CI to test for insecure modules
-    1. [ ] Fix issues
-    1. [ ] recommit
+1. [x] Get CI to test for insecure modules
+    1. [x] Fix issues
+    1. [x] recommit
 1. [ ] Get CI to detect messed up JS
     1. [ ] Fix issues
     1. [ ] recommit
