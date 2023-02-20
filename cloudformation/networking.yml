@@ -1,0 +1,82 @@
+Description: Networking architecture
+
+Parameters:
+  VpcCidr:
+    Description: CIDR block for the VPC
+    Type: String
+  PubSubnetACidr:
+    Type: String
+  StudentName:
+    Type: String
+
+Resources:
+
+  MyTestVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref VpcCidr
+      Tags: 
+        - Key: Name
+          Value: !Sub "${StudentName}-16-vpc"
+        
+  PubSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyTestVPC
+      CidrBlock: !Ref PubSubnetACidr
+      AvailabilityZone: "eu-west-2a"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-pub-subnet-a"
+  
+  PubSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyTestVPC
+      CidrBlock: !Ref PubSubnetBCidr
+      AvailabilityZone: "eu-west-2a"
+      MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-pub-subnet-b"
+
+  PrivSubnet:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref MyTestVPC
+      CidrBlock: !Ref PrivSubnetACidr
+      AvailabilityZone: "eu-west-2a"
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-priv-subnet-a"
+  
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-igw"
+
+  PubRouteA:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-pub-route-a"
+      VpcId: !Ref MyTestVPC
+
+  PubRouteB:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-pub-route-b"
+      VpcId: !Ref MyTestVPC
+  PubRouteA:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags:
+        - Key: Name
+          Value: !Sub "${StudentName}-pub-route-a"
+      VpcId: !Ref MyTestVPC

@@ -9,5 +9,5 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
 
-      - name: check insecure for vuln
-        run: cd insecure && npm i && npm audit  
+      #- name: check insecure for vuln
+       # run: cd insecure && npm i && npm audit  

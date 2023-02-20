@@ -1,0 +1,10 @@
+create VPC: 10.0.0.0/22
+get github actions to deploy IaC
+create Pub subnets:
+    - A: 10.0.0.0/24
+    - B: 10.0.1.0/24
+create Pvt subnets: A: 10.0.2.0/24
+create IGW
+create public route tables
+create nat gateway
+create private route table
