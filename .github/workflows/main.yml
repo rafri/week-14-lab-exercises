@@ -2,12 +2,10 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
   
-
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    install:
-      npm
+    install: npm
     steps:
       - run: cd insecure && npm audit
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -21,3 +19,5 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."      
+            - uses: actions/checkout@v3
+    
