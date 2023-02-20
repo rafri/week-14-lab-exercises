@@ -5,6 +5,7 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    install: npm
     steps:
       - run: cd insecure && npm audit
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
